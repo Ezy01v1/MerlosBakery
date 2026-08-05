@@ -1,6 +1,6 @@
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Menu from './components/Menu'
+import MenuGrid from './components/MenuGrid'
 import HowItWorks from './components/HowItWorks'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
@@ -8,10 +8,10 @@ import WhatsAppFloat from './components/WhatsAppFloat'
 export default function App() {
   return (
     <div className="min-h-screen bg-cream-light">
-      <Header />
+      <Navbar />
       <main>
         <Hero />
-        <Menu />
+        <MenuGrid />
         <HowItWorks />
       </main>
       <Footer />

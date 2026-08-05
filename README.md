@@ -1,12 +1,13 @@
 # Don Merlo Bakery — Landing Page
 
-Landing page para Don Merlo Bakery: repostería boutique y pizzería en línea en Siguatepeque y Otoro, Honduras.
+Landing page premium para Don Merlo Bakery: repostería boutique y pizzería en línea en Siguatepeque, Comayagua y Otoro, Honduras.
 
 ## Stack
 
 - React 18 + TypeScript
 - Tailwind CSS
 - Vite
+- Framer Motion (fade-ins, scroll reveals, micro-interacciones)
 - lucide-react (íconos)
 
 ## Cómo correrlo
@@ -18,44 +19,44 @@ npm run dev
 
 Abre el link que te muestre la terminal (normalmente `http://localhost:5173`).
 
-Para generar la versión de producción:
+Para producción:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Los archivos listos para subir a hosting quedan en la carpeta `dist/`.
+Los archivos listos para subir a hosting quedan en `dist/`.
 
 ## Estructura
 
 ```
 src/
   components/
-    Header.tsx        Barra de navegación fija con logo centrado y CTA de WhatsApp
-    Hero.tsx           Sección de inicio con el eslogan
-    Menu.tsx            Grid de las 4 categorías del menú
-    HowItWorks.tsx      Sección "Cómo Funciona" (3 pasos)
-    Footer.tsx           Pie de página con contacto y ubicaciones
-    WhatsAppFloat.tsx  Botón flotante de WhatsApp
-    SectionDivider.tsx Divisor decorativo entre secciones (motivo de gota del logo)
-    icons/WhatsAppIcon.tsx  Ícono de WhatsApp (no incluido en Lucide/Heroicons)
+    Navbar.tsx          Barra fija con backdrop-blur, logo centrado y CTA de WhatsApp
+    Hero.tsx             Sección de inicio: eslogan, textura de papel sutil, animaciones de entrada
+    MenuGrid.tsx          Grid de las 4 categorías (1 col móvil / 2 tablet / 4 desktop)
+    HowItWorks.tsx        "Cómo Funciona": Elige / Ordena / Disfruta
+    Footer.tsx             Pie de página con contacto y ubicaciones
+    WhatsAppFloat.tsx    Botón flotante de WhatsApp
+    SectionDivider.tsx  Divisor decorativo (motivo de gota del logo)
+    icons/WhatsAppIcon.tsx  Ícono de WhatsApp (no está en Lucide/Heroicons)
   data/
-    menuData.ts        Todo el contenido editable: categorías del menú, pasos, número de WhatsApp e Instagram
+    menuData.ts          Contenido editable: items del menú, pasos, WhatsApp e Instagram
   types/
-    index.ts           Tipos compartidos
+    index.ts              Interface MenuItem (id, title, image, description) y OrderStep
 ```
 
 ## Cosas para personalizar antes de publicar
 
-1. **Fotos reales de los productos**: por ahora cada tarjeta del menú usa un fondo con degradado + ícono como placeholder (no tuve acceso a un banco de imágenes real). Para poner tus fotos:
-   - Coloca las imágenes en `public/images/` (crea la carpeta).
-   - En `src/components/Menu.tsx`, agrega una capa `<img>` (o cambia el `<div>` de fondo por `background-image`) dentro de cada tarjeta, usando la ruta de tu imagen.
-   - El campo `gradient` en `src/data/menuData.ts` puedes dejarlo como fallback mientras subes las fotos.
-2. **Número de WhatsApp / Instagram**: están centralizados en `src/data/menuData.ts` (`WHATSAPP_NUMBER`, `INSTAGRAM_HANDLE`).
-3. **Textos del menú**: edita `menuCategories` en `src/data/menuData.ts`.
-4. **Colores**: los tokens de marca están en `tailwind.config.ts` (`rose`, `cream`, `ink`, `espresso`, `gold`).
+1. **Fotos reales de los productos**: no tuve acceso a un banco de imágenes desde este entorno, así que cada tarjeta usa un degradado + ícono como placeholder. La interfaz `MenuItem` en `src/types/index.ts` ya tiene un campo `image` opcional:
+   - Coloca tus fotos en `public/images/`.
+   - En `src/data/menuData.ts`, agrégale `image: '/images/postres.jpg'` al item que corresponda — `MenuGrid.tsx` ya detecta ese campo y muestra la foto con el zoom al hover en vez del placeholder, sin tocar nada más.
+2. **Número de WhatsApp / Instagram**: centralizados en `src/data/menuData.ts`.
+3. **Textos del menú y pasos**: edita `menuItems` y `orderSteps` en `src/data/menuData.ts`.
+4. **Colores**: tokens de marca en `tailwind.config.ts` (`rose`, `cream`, `ink`, `espresso`, `gold`).
+5. **Copyright**: el footer usa el año actual automáticamente en vez de un año fijo, para que nunca quede desactualizado.
 
 ## Despliegue
 
-El proyecto genera archivos estáticos (`npm run build` → carpeta `dist/`), listos para Netlify, Vercel, GitHub Pages o cualquier hosting estático.
+`npm run build` genera archivos estáticos en `dist/`, listos para Netlify, Vercel, GitHub Pages o cualquier hosting estático.

@@ -1,15 +1,15 @@
-import { Cake, Cookie, Grid3x3, Pizza, BookOpen, MessageCircle, MapPin } from 'lucide-react'
-import type { MenuCategory, OrderStep } from '../types'
+import { Cake, Cookie, Grid3x3, Pizza, ListChecks, MessageCircle, MapPin } from 'lucide-react'
+import type { MenuItem, OrderStep } from '../types'
 
 export const WHATSAPP_NUMBER = '50489436365'
 export const WHATSAPP_DISPLAY = '+504 8943-6365'
 export const INSTAGRAM_HANDLE = '@donmerlobakeryhn'
 export const INSTAGRAM_URL = 'https://instagram.com/donmerlobakeryhn'
 
-export const menuCategories: MenuCategory[] = [
+export const menuItems: MenuItem[] = [
   {
     id: 'postres',
-    name: 'Postres',
+    title: 'Postres',
     description: 'Tartas, pasteles y postres de autor, horneados en pequeños lotes.',
     icon: Cake,
     gradient: 'from-rose via-rose to-rose-dark',
@@ -17,7 +17,7 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: 'galletas',
-    name: 'Galletas',
+    title: 'Galletas',
     description: 'Galletas artesanales, crocantes por fuera y suaves por dentro.',
     icon: Cookie,
     gradient: 'from-rose-dark via-rose to-rose',
@@ -25,7 +25,7 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: 'waffles',
-    name: "Waffle's",
+    title: "Waffle's",
     description: 'Waffles recién hechos, dorados y listos para acompañar.',
     icon: Grid3x3,
     gradient: 'from-rose via-rose-deep to-rose',
@@ -33,7 +33,7 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: 'pizzas',
-    name: 'Pizzas',
+    title: 'Pizzas',
     description: 'Pizzas de masa artesanal con un toque italiano clásico.',
     icon: Pizza,
     gradient: 'from-rose-deep via-rose-dark to-rose',
@@ -44,20 +44,20 @@ export const menuCategories: MenuCategory[] = [
 export const orderSteps: OrderStep[] = [
   {
     number: '01',
-    title: 'Explora el menú',
-    description: 'Revisa nuestras categorías de postres, galletas, waffles y pizzas.',
-    icon: BookOpen,
+    title: 'Elige',
+    description: 'Explora nuestro menú artesanal.',
+    icon: ListChecks,
   },
   {
     number: '02',
-    title: 'Escríbenos por WhatsApp',
-    description: `Haz tu pedido directamente al ${WHATSAPP_DISPLAY}.`,
+    title: 'Ordena',
+    description: `Escríbenos al ${WHATSAPP_DISPLAY}.`,
     icon: MessageCircle,
   },
   {
     number: '03',
-    title: 'Recoge tu pedido',
-    description: 'Retira tu orden en Siguatepeque u Otoro, lista en el día acordado.',
+    title: 'Disfruta',
+    description: 'Entregas en Siguatepeque, Comayagua y Otoro.',
     icon: MapPin,
   },
 ]

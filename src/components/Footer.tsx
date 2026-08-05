@@ -17,7 +17,7 @@ export default function Footer() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-sm text-cream/85 transition-colors hover:text-gold"
+            className="inline-flex items-center gap-2 font-sans text-sm text-cream/85 transition-colors duration-300 hover:text-gold"
           >
             <Instagram size={18} />
             {INSTAGRAM_HANDLE}
@@ -26,7 +26,7 @@ export default function Footer() {
             href={buildWhatsAppLink('Hola Don Merlo, quisiera hacer un pedido 🍰')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-sm text-cream/85 transition-colors hover:text-gold"
+            className="inline-flex items-center gap-2 font-sans text-sm text-cream/85 transition-colors duration-300 hover:text-gold"
           >
             <WhatsAppIcon className="h-4 w-4" />
             {WHATSAPP_DISPLAY}
